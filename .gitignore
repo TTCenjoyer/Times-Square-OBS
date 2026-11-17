@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+assets/generated/
+assets/source/base.mp4
+assets/source/matte.mov
+assets/source/tracking.json.gz
+*.log
+*.part.mkv
+.obs-backups/

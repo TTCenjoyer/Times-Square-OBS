@@ -1,0 +1,33 @@
+uniform float4x4 ViewProj;
+uniform texture2d image;
+uniform texture2d live_image;
+uniform bool input_available = true;
+uniform float brightness = 1.0;
+uniform float zoom = 1.0;
+uniform float offset_x = 0.0;
+uniform float offset_y = 0.0;
+uniform bool debug_mask = false;
+sampler_state linear_sampler { Filter = Linear; AddressU = Clamp; AddressV = Clamp; };
+sampler_state point_sampler { Filter = Point; AddressU = Clamp; AddressV = Clamp; };
+struct VertData { float4 pos : POSITION; float2 uv : TEXCOORD0; };
+VertData VSDefault(VertData v) { v.pos = mul(float4(v.pos.xyz, 1.0), ViewProj); return v; }
+float4 PSLive(VertData v) : TARGET {
+    float2 base_uv = float2(v.uv.x / 3.0, v.uv.y);
+    float2 mask_uv = float2((1.0 + v.uv.x) / 3.0, v.uv.y);
+    float2 mesh_uv = float2((2.0 + v.uv.x) / 3.0, v.uv.y);
+    float4 bg = image.Sample(linear_sampler, base_uv);
+    float mask = image.Sample(linear_sampler, mask_uv).r;
+    if (!input_available || mask < 0.002) return float4(bg.rgb, 1.0);
+    if (debug_mask) return float4(lerp(bg.rgb,float3(0.0,1.0,0.0),mask),1.0);
+    // All coordinates belong to this exact video frame; no independent timer.
+    // RGB stores two 12-bit mesh coordinates without edge-pixel extrapolation.
+    float3 bytes = floor(image.Sample(point_sampler, mesh_uv).rgb * 255.0 + 0.5);
+    float u_low = floor(bytes.b / 16.0);
+    float v_low = bytes.b - u_low * 16.0;
+    float2 uv = float2(bytes.r * 16.0 + u_low, bytes.g * 16.0 + v_low) / 4095.0;
+    uv = (uv - 0.5) / zoom + 0.5 + float2(offset_x, offset_y);
+    float4 live = live_image.Sample(linear_sampler, saturate(uv));
+    float3 replacement = live.rgb * brightness + bg.rgb * (1.0-live.a);
+    return float4(lerp(bg.rgb,replacement,mask),1.0);
+}
+technique Draw { pass { vertex_shader = VSDefault(v); pixel_shader = PSLive(v); } }

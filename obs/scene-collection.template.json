@@ -1,0 +1,372 @@
+{
+  "name": "Times Square LIVE",
+  "current_scene": "02 | Times Square LIVE",
+  "current_program_scene": "02 | Times Square LIVE",
+  "scene_order": [
+    {
+      "name": "01 | Obraz na billboardach"
+    },
+    {
+      "name": "02 | Times Square LIVE"
+    }
+  ],
+  "sources": [
+    {
+      "prev_ver": 536870916,
+      "name": "Plansza LIVE - ukryj po dodaniu swojego obrazu",
+      "uuid": "db5f3e38-9a04-4944-bcf3-f7c31f8057c2",
+      "id": "browser_source",
+      "versioned_id": "browser_source",
+      "settings": {
+        "is_local_file": true,
+        "local_file": "${ROOT}/samples/plansza-live.html",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "fps_custom": true,
+        "shutdown": false,
+        "restart_when_active": false,
+        "reroute_audio": false
+      },
+      "mixers": 0,
+      "sync": 0,
+      "flags": 0,
+      "volume": 1.0,
+      "balance": 0.5,
+      "enabled": true,
+      "muted": false,
+      "push-to-mute": false,
+      "push-to-mute-delay": 0,
+      "push-to-talk": false,
+      "push-to-talk-delay": 0,
+      "hotkeys": {},
+      "deinterlace_mode": 0,
+      "deinterlace_field_order": 0,
+      "monitoring_type": 0,
+      "private_settings": {}
+    },
+    {
+      "prev_ver": 536870916,
+      "name": "01 | Obraz na billboardach",
+      "uuid": "7fc668ba-732d-4edf-85bf-897e5fab16b9",
+      "id": "scene",
+      "versioned_id": "scene",
+      "settings": {
+        "custom_size": true,
+        "cx": 1920,
+        "cy": 1080,
+        "id_counter": 1,
+        "items": [
+          {
+            "name": "Plansza LIVE - ukryj po dodaniu swojego obrazu",
+            "source_uuid": "db5f3e38-9a04-4944-bcf3-f7c31f8057c2",
+            "visible": true,
+            "locked": false,
+            "rot": 0.0,
+            "scale_ref": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "align": 5,
+            "bounds_type": 2,
+            "bounds_align": 0,
+            "bounds_crop": false,
+            "crop_left": 0,
+            "crop_top": 0,
+            "crop_right": 0,
+            "crop_bottom": 0,
+            "id": 1,
+            "group_item_backup": false,
+            "pos": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "pos_rel": {
+              "x": -1.7777777910232544,
+              "y": -1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "scale_rel": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "bounds": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "bounds_rel": {
+              "x": 3.555555582046509,
+              "y": 2.0
+            },
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal",
+            "show_transition": {
+              "duration": 0
+            },
+            "hide_transition": {
+              "duration": 0
+            },
+            "private_settings": {}
+          }
+        ]
+      },
+      "mixers": 0,
+      "sync": 0,
+      "flags": 0,
+      "volume": 1.0,
+      "balance": 0.5,
+      "enabled": true,
+      "muted": false,
+      "push-to-mute": false,
+      "push-to-mute-delay": 0,
+      "push-to-talk": false,
+      "push-to-talk-delay": 0,
+      "hotkeys": {},
+      "deinterlace_mode": 0,
+      "deinterlace_field_order": 0,
+      "monitoring_type": 0,
+      "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+      "private_settings": {}
+    },
+    {
+      "prev_ver": 536870916,
+      "name": "Times Square - tlo 30 s + tracking",
+      "uuid": "74f941bf-b68f-425a-a1ba-64cfd08beb58",
+      "id": "ffmpeg_source",
+      "versioned_id": "ffmpeg_source",
+      "settings": {
+        "local_file": "${ROOT}/assets/generated/times-square-live-v2.mkv",
+        "is_local_file": true,
+        "looping": true,
+        "restart_on_activate": true,
+        "close_when_inactive": false,
+        "hw_decode": false,
+        "clear_on_media_end": false,
+        "buffering_mb": 4,
+        "speed_percent": 100,
+        "ffmpeg_options": "threads=4"
+      },
+      "mixers": 255,
+      "sync": 0,
+      "flags": 0,
+      "volume": 1.0,
+      "balance": 0.5,
+      "enabled": true,
+      "muted": false,
+      "push-to-mute": false,
+      "push-to-mute-delay": 0,
+      "push-to-talk": false,
+      "push-to-talk-delay": 0,
+      "hotkeys": {},
+      "deinterlace_mode": 0,
+      "deinterlace_field_order": 0,
+      "monitoring_type": 0,
+      "private_settings": {},
+      "filters": [
+        {
+          "prev_ver": 536870916,
+          "name": "Times Square LIVE - maska i perspektywa",
+          "uuid": "8f3d2ac5-06a7-4609-ab87-470aa43bf910",
+          "id": "times_square_live_v1",
+          "versioned_id": "times_square_live_v1",
+          "settings": {
+            "offset_x": 0.0,
+            "offset_y": 0.0,
+            "debug_mask": false,
+            "input_scene": "01 | Obraz na billboardach",
+            "brightness": 1.0,
+            "zoom": 1.0,
+            "crop_landscape": false
+          },
+          "mixers": 0,
+          "sync": 0,
+          "flags": 0,
+          "volume": 1.0,
+          "balance": 0.5,
+          "enabled": true,
+          "muted": false,
+          "push-to-mute": false,
+          "push-to-mute-delay": 0,
+          "push-to-talk": false,
+          "push-to-talk-delay": 0,
+          "hotkeys": {},
+          "deinterlace_mode": 0,
+          "deinterlace_field_order": 0,
+          "monitoring_type": 0,
+          "private_settings": {}
+        }
+      ]
+    },
+    {
+      "prev_ver": 536870916,
+      "name": "02 | Times Square LIVE",
+      "uuid": "864f2381-e452-407f-b54b-b1ed206fb514",
+      "id": "scene",
+      "versioned_id": "scene",
+      "settings": {
+        "id_counter": 2,
+        "custom_size": true,
+        "items": [
+          {
+            "name": "01 | Obraz na billboardach",
+            "source_uuid": "7fc668ba-732d-4edf-85bf-897e5fab16b9",
+            "visible": true,
+            "locked": true,
+            "rot": 0.0,
+            "scale_ref": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "align": 5,
+            "bounds_type": 2,
+            "bounds_align": 0,
+            "bounds_crop": false,
+            "crop_left": 0,
+            "crop_top": 0,
+            "crop_right": 0,
+            "crop_bottom": 0,
+            "id": 1,
+            "group_item_backup": false,
+            "pos": {
+              "x": -3840.0,
+              "y": 0.0
+            },
+            "pos_rel": {
+              "x": -8.88888931274414,
+              "y": -1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "scale_rel": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "bounds": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "bounds_rel": {
+              "x": 3.555555582046509,
+              "y": 2.0
+            },
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal",
+            "show_transition": {
+              "duration": 0
+            },
+            "hide_transition": {
+              "duration": 0
+            },
+            "private_settings": {}
+          },
+          {
+            "name": "Times Square - tlo 30 s + tracking",
+            "source_uuid": "74f941bf-b68f-425a-a1ba-64cfd08beb58",
+            "visible": true,
+            "locked": true,
+            "rot": 0.0,
+            "scale_ref": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "align": 5,
+            "bounds_type": 2,
+            "bounds_align": 0,
+            "bounds_crop": false,
+            "crop_left": 0,
+            "crop_top": 0,
+            "crop_right": 0,
+            "crop_bottom": 0,
+            "id": 2,
+            "group_item_backup": false,
+            "pos": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "pos_rel": {
+              "x": -1.7777777910232544,
+              "y": -1.0
+            },
+            "scale": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "scale_rel": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "bounds": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "bounds_rel": {
+              "x": 3.555555582046509,
+              "y": 2.0
+            },
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal",
+            "show_transition": {
+              "duration": 0
+            },
+            "hide_transition": {
+              "duration": 0
+            },
+            "private_settings": {}
+          }
+        ],
+        "cx": 1920,
+        "cy": 1080
+      },
+      "mixers": 0,
+      "sync": 0,
+      "flags": 0,
+      "volume": 1.0,
+      "balance": 0.5,
+      "enabled": true,
+      "muted": false,
+      "push-to-mute": false,
+      "push-to-mute-delay": 0,
+      "push-to-talk": false,
+      "push-to-talk-delay": 0,
+      "hotkeys": {},
+      "deinterlace_mode": 0,
+      "deinterlace_field_order": 0,
+      "monitoring_type": 0,
+      "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+      "private_settings": {}
+    }
+  ],
+  "groups": [],
+  "quick_transitions": [],
+  "transitions": [],
+  "current_transition": "Zanikanie",
+  "transition_duration": 300,
+  "preview_locked": false,
+  "scaling_enabled": false,
+  "saved_projectors": [],
+  "canvases": [],
+  "resolution": {
+    "x": 1920,
+    "y": 1080
+  },
+  "version": 2,
+  "modules": {
+    "scripts-tool": [
+      {
+        "path": "${ROOT}/obs/times-square-live.lua",
+        "settings": {}
+      }
+    ]
+  },
+  "virtual-camera": {
+    "type2": 3
+  }
+}
